@@ -3,12 +3,17 @@ package com.codecool.quest;
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
+import com.codecool.quest.model.Direction;
+import com.codecool.quest.model.KeyBinding;
+import com.codecool.quest.model.PlayerAction;
+import com.codecool.quest.model.WSADKeyBinding;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
@@ -22,6 +27,7 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
+    KeyBinding keyBinding = new WSADKeyBinding();
 
     public static void main(String[] args) {
         launch(args);
@@ -51,24 +57,26 @@ public class Main extends Application {
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
-        switch (keyEvent.getCode()) {
+        KeyCode keyCode = keyEvent.getCode();
+        PlayerAction playerAction = keyBinding.getAction(keyCode);
+
+        map.makePlayerAction(playerAction);
+        switch (keyCode) {
             case UP:
-                map.getPlayer().move(0, -1);
-                refresh();
+            case W:
+                map.getPlayer().move(Direction.UP);
                 break;
             case DOWN:
-                map.getPlayer().move(0, 1);
-                refresh();
+                map.getPlayer().move(Direction.DOWN);
                 break;
             case LEFT:
                 map.getPlayer().move(-1, 0);
-                refresh();
                 break;
             case RIGHT:
                 map.getPlayer().move(1,0);
-                refresh();
                 break;
         }
+        refresh();
     }
 
     private void refresh() {

@@ -2,18 +2,19 @@ package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Actor;
 import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.Coordinate;
 import com.codecool.quest.model.TileSymbol;
 
 public class Cell implements Drawable {
     private CellType type;
     private Actor actor;
     private GameMap gameMap;
-    private int x, y;//TODO refactor this to coordinate
+    //private int x, y;//TODO refactor this to coordinate
+    private Coordinate coordinate;
 
-    Cell(GameMap gameMap, int x, int y, CellType type) {
+    Cell(GameMap gameMap, Coordinate coordinate, CellType type) {
         this.gameMap = gameMap;
-        this.x = x;
-        this.y = y;
+        this.coordinate = coordinate;
         this.type = type;
     }
 
@@ -37,8 +38,9 @@ public class Cell implements Drawable {
         return actor;
     }
 
-    public Cell getNeighbor(int dx, int dy) {
-        return gameMap.getCell(x + dx, y + dy);
+    public Cell getNeighbor(Coordinate vector) {
+        Coordinate newPosition = this.coordinate.add(vector);
+        return gameMap.getCell(newPosition);
     }
 
     @Override
@@ -47,10 +49,10 @@ public class Cell implements Drawable {
     }
 
     public int getX() {
-        return x;
+        return coordinate.getX();
     }
 
     public int getY() {
-        return y;
+        return coordinate.getY();
     }
 }

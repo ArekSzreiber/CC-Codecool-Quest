@@ -24,27 +24,16 @@ public class MapLoader {
                 if (x < line.length()) {
                     Cell cell = map.getCell(x, y);
                     TileSymbol currentSymbol = new TileSymbol(line.charAt(x));
+                    cell.setType(currentSymbol);
                     switch (currentSymbol.getValue()) {
-                        case ' ':
-                            cell.setType(CellType.EMPTY);
-                            break;
-                        case '#':
-                            cell.setType(CellType.WALL);
-                            break;
-                        case '.':
-                            cell.setType(CellType.FLOOR);
-                            break;
                         case 's':
-                            cell.setType(CellType.FLOOR);
                             new Skeleton(cell);
                             break;
                         case '@':
-                            cell.setType(CellType.FLOOR);
                             map.setPlayer(new Player(cell));
                             break;
-                        default:
-                            throw new RuntimeException("Unrecognized character: '" + currentSymbol + "'");
                     }
+
                 }
             }
         }

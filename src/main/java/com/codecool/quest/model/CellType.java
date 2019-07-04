@@ -17,7 +17,7 @@ public enum CellType {
                 return cellType;
             }
         }
-        return null;
+        return CellType.FLOOR;
     }
 
     private TileSymbol getTileSymbol() {

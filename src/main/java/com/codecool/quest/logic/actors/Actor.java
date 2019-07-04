@@ -2,6 +2,7 @@ package com.codecool.quest.logic.actors;
 
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.Drawable;
+import com.codecool.quest.model.Direction;
 
 public abstract class Actor implements Drawable {
     private Cell cell;
@@ -12,8 +13,8 @@ public abstract class Actor implements Drawable {
         this.cell.setActor(this);
     }
 
-    public void move(int dx, int dy) {
-        Cell nextCell = cell.getNeighbor(dx, dy);
+    public void move(Direction direction) {
+        Cell nextCell = cell.getNeighbor(direction.getVector());
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;
