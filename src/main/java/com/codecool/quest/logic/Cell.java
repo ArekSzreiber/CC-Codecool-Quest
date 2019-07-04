@@ -1,12 +1,14 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.TileSymbol;
 
 public class Cell implements Drawable {
     private CellType type;
     private Actor actor;
     private GameMap gameMap;
-    private int x, y;
+    private int x, y;//TODO refactor this to coordinate
 
     Cell(GameMap gameMap, int x, int y, CellType type) {
         this.gameMap = gameMap;
@@ -21,6 +23,10 @@ public class Cell implements Drawable {
 
     public void setType(CellType type) {
         this.type = type;
+    }
+
+    public void setType(TileSymbol tileSymbol){
+        this.type = CellType.getTile(tileSymbol);
     }
 
     public void setActor(Actor actor) {

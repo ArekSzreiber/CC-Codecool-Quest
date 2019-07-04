@@ -1,6 +1,7 @@
 package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
+import com.codecool.quest.model.CellType;
 
 public class GameMap {
     private int width;
@@ -21,7 +22,13 @@ public class GameMap {
     }
 
     public Cell getCell(int x, int y) {
-        return cells[x][y];
+        if ((x >= 0 && x < cells.length)
+                && (y >= 0 && y < cells.length)) {
+            return cells[x][y];
+        } else {
+            return null;
+        }
+
     }
 
     public void setPlayer(Player player) {

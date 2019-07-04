@@ -2,6 +2,8 @@ package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Skeleton;
+import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.TileSymbol;
 
 import java.io.InputStream;
 import java.util.Scanner;
@@ -21,7 +23,8 @@ public class MapLoader {
             for (int x = 0; x < width; x++) {
                 if (x < line.length()) {
                     Cell cell = map.getCell(x, y);
-                    switch (line.charAt(x)) {
+                    TileSymbol currentSymbol = new TileSymbol(line.charAt(x));
+                    switch (currentSymbol.getValue()) {
                         case ' ':
                             cell.setType(CellType.EMPTY);
                             break;
@@ -40,7 +43,7 @@ public class MapLoader {
                             map.setPlayer(new Player(cell));
                             break;
                         default:
-                            throw new RuntimeException("Unrecognized character: '" + line.charAt(x) + "'");
+                            throw new RuntimeException("Unrecognized character: '" + currentSymbol + "'");
                     }
                 }
             }
