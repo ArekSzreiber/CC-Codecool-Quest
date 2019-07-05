@@ -3,7 +3,6 @@ package com.codecool.quest;
 import com.codecool.quest.logic.Cell;
 import com.codecool.quest.logic.GameMap;
 import com.codecool.quest.logic.MapLoader;
-import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.KeyBinding;
 import com.codecool.quest.model.PlayerAction;
 import com.codecool.quest.model.WSADKeyBinding;
@@ -27,7 +26,7 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
-    KeyBinding keyBinding = new WSADKeyBinding();
+    private KeyBinding keyBinding = new WSADKeyBinding();
 
     public static void main(String[] args) {
         launch(args);
@@ -59,23 +58,7 @@ public class Main extends Application {
     private void onKeyPressed(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
         PlayerAction playerAction = keyBinding.getAction(keyCode);
-
         map.makePlayerAction(playerAction);
-        switch (keyCode) {
-            case UP:
-            case W:
-                map.getPlayer().move(Direction.UP);
-                break;
-            case DOWN:
-                map.getPlayer().move(Direction.DOWN);
-                break;
-            case LEFT:
-                map.getPlayer().move(-1, 0);
-                break;
-            case RIGHT:
-                map.getPlayer().move(1,0);
-                break;
-        }
         refresh();
     }
 

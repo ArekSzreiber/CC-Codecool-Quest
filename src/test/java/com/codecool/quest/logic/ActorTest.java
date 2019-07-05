@@ -3,6 +3,7 @@ package com.codecool.quest.logic;
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Skeleton;
 import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.Direction;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -13,7 +14,7 @@ class ActorTest {
     @Test
     void moveUpdatesCells() {
         Player player = new Player(gameMap.getCell(1, 1));
-        player.move(1, 0);
+        player.move(Direction.RIGHT);
 
         assertEquals(2, player.getX());
         assertEquals(1, player.getY());
@@ -25,7 +26,7 @@ class ActorTest {
     void cannotMoveIntoWall() {
         gameMap.getCell(2, 1).setType(CellType.WALL);
         Player player = new Player(gameMap.getCell(1, 1));
-        player.move(1, 0);
+        player.move(Direction.RIGHT);
 
         assertEquals(1, player.getX());
         assertEquals(1, player.getY());
@@ -34,7 +35,7 @@ class ActorTest {
     @Test
     void cannotMoveOutOfMap() {
         Player player = new Player(gameMap.getCell(2, 1));
-        player.move(1, 0);
+        player.move(Direction.RIGHT);
 
         assertEquals(2, player.getX());
         assertEquals(1, player.getY());
@@ -44,7 +45,7 @@ class ActorTest {
     void cannotMoveIntoAnotherActor() {
         Player player = new Player(gameMap.getCell(1, 1));
         Skeleton skeleton = new Skeleton(gameMap.getCell(2, 1));
-        player.move(1, 0);
+        player.move(Direction.RIGHT);
 
         assertEquals(1, player.getX());
         assertEquals(1, player.getY());

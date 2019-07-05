@@ -17,8 +17,8 @@ public class Coordinate {
     }
 
     public Coordinate add(Coordinate vector) {
-        this.x = vector.getX();
-        this.y = vector.getY();
+        this.x += vector.getX();
+        this.y += vector.getY();
         return this;
     }
 }

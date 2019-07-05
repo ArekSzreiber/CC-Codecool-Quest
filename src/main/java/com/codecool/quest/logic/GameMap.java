@@ -3,6 +3,7 @@ package com.codecool.quest.logic;
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.model.CellType;
 import com.codecool.quest.model.Coordinate;
+import com.codecool.quest.model.PlayerAction;
 
 public class GameMap {
     private int width;
@@ -52,5 +53,16 @@ public class GameMap {
 
     public int getHeight() {
         return height;
+    }
+
+    public void makePlayerAction(PlayerAction playerAction) {
+        switch(playerAction){
+            case MOVE_UP:
+            case MOVE_DOWN:
+            case MOVE_LEFT:
+            case MOVE_RIGHT:
+                player.move(playerAction.getDirection());
+                break;
+        }
     }
 }

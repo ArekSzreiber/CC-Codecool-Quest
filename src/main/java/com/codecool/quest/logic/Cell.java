@@ -3,6 +3,7 @@ package com.codecool.quest.logic;
 import com.codecool.quest.logic.actors.Actor;
 import com.codecool.quest.model.CellType;
 import com.codecool.quest.model.Coordinate;
+import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.TileSymbol;
 
 public class Cell implements Drawable {
@@ -41,6 +42,11 @@ public class Cell implements Drawable {
     public Cell getNeighbor(Coordinate vector) {
         Coordinate newPosition = this.coordinate.add(vector);
         return gameMap.getCell(newPosition);
+    }
+
+    public Cell getNeighbor(Direction direction) {
+        Coordinate vector = direction.getVector();
+        return getNeighbor(vector);
     }
 
     @Override
