@@ -1,4 +1,4 @@
-package com.codecool.quest.model;
+package com.codecool.quest.model.tile;
 
 public class TileSymbol {
     private char symbol;

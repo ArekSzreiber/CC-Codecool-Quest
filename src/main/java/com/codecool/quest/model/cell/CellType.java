@@ -1,4 +1,7 @@
-package com.codecool.quest.model;
+package com.codecool.quest.model.cell;
+
+import com.codecool.quest.model.tile.Tile;
+import com.codecool.quest.model.tile.TileSymbol;
 
 public enum CellType {
     EMPTY(new Tile("empty", ' ')),

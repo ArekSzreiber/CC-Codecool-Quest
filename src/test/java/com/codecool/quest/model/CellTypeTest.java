@@ -1,8 +1,8 @@
 package com.codecool.quest.model;
 
+import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.tile.TileSymbol;
 import org.junit.jupiter.api.Test;
-
-import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.*;
 

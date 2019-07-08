@@ -1,8 +1,8 @@
 package com.codecool.quest;
 
-import com.codecool.quest.logic.Cell;
-import com.codecool.quest.logic.GameMap;
-import com.codecool.quest.logic.MapLoader;
+import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.map.GameMap;
+import com.codecool.quest.model.map.MapLoader;
 import com.codecool.quest.model.KeyBinding;
 import com.codecool.quest.model.PlayerAction;
 import com.codecool.quest.model.WSADKeyBinding;

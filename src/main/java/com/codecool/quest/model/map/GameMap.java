@@ -1,7 +1,8 @@
-package com.codecool.quest.logic;
+package com.codecool.quest.model.map;
 
 import com.codecool.quest.logic.actors.Player;
-import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.PlayerAction;
 
 public class GameMap {

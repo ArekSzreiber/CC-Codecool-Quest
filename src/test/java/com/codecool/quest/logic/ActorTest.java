@@ -2,8 +2,9 @@ package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Player;
 import com.codecool.quest.logic.actors.Skeleton;
-import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.Direction;
+import com.codecool.quest.model.map.GameMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
