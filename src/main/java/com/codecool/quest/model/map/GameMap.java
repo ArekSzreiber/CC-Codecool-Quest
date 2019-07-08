@@ -56,6 +56,9 @@ public class GameMap {
             case MOVE_RIGHT:
                 player.move(playerAction.getDirection());
                 break;
+            case PICK_UP:
+                player.pickUp();
+                break;
         }
     }
 }

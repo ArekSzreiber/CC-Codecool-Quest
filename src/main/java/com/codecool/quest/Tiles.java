@@ -15,9 +15,9 @@ public class Tiles {
 
     private static class TileSource {
         final int x, y, w, h;
-        TileSource(int i, int j) {
-            x = i * (TILE_WIDTH + 2);
-            y = j * (TILE_WIDTH + 2);
+        TileSource(int column, int row) {
+            x = column * (TILE_WIDTH + 2);
+            y = row * (TILE_WIDTH + 2);
             w = TILE_WIDTH;
             h = TILE_WIDTH;
         }
@@ -29,6 +29,7 @@ public class Tiles {
         tileMap.put("floor", new TileSource(2, 0));
         tileMap.put("player", new TileSource(27, 0));
         tileMap.put("skeleton", new TileSource(29, 6));
+        tileMap.put("plainSword", new TileSource(0, 29));
     }
 
     public static void drawTile(GraphicsContext context, Drawable d, int x, int y) {

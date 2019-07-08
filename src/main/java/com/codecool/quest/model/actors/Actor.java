@@ -5,7 +5,7 @@ import com.codecool.quest.model.Drawable;
 import com.codecool.quest.model.Direction;
 
 public abstract class Actor implements Drawable {
-    private Cell cell;
+    protected Cell cell;
     private int health = 10;
 
     public Actor(Cell cell) {

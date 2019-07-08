@@ -1,6 +1,7 @@
 package com.codecool.quest.model.cell;
 
 import com.codecool.quest.model.Drawable;
+import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.map.GameMap;
 import com.codecool.quest.model.actors.Actor;
 import com.codecool.quest.model.Direction;
@@ -9,6 +10,7 @@ import com.codecool.quest.model.tile.TileSymbol;
 public class Cell implements Drawable {
     private CellType type;
     private Actor actor;
+    private Item item;
     private GameMap gameMap;
     private int x, y;
 
@@ -62,5 +64,13 @@ public class Cell implements Drawable {
 
     public boolean isWalkable() {
         return type.isWalkable();
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
+    public Item getItem() {
+        return this.item;
     }
 }

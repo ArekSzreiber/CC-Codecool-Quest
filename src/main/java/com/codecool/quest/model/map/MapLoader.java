@@ -4,6 +4,7 @@ import com.codecool.quest.model.actors.Player;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.items.PlainSword;
 import com.codecool.quest.model.tile.TileSymbol;
 
 import java.io.InputStream;
@@ -29,6 +30,9 @@ public class MapLoader {
                     switch (currentSymbol.getValue()) {
                         case 's':
                             new Skeleton(cell);
+                            break;
+                        case 'p':
+                            new PlainSword(cell);
                             break;
                         case '@':
                             map.setPlayer(new Player(cell));

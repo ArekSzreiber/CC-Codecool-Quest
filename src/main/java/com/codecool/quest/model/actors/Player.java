@@ -10,4 +10,10 @@ public class Player extends Actor {
     public String getTileName() {
         return "player";
     }
+
+
+
+    public void pickUp(){
+        cell.setItem(null);
+    }
 }
