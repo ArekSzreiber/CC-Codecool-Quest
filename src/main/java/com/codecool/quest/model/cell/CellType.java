@@ -5,13 +5,20 @@ import com.codecool.quest.model.tile.TileSymbol;
 
 public enum CellType {
     EMPTY(new Tile("empty", ' ')),
-    FLOOR(new Tile("floor", '.')),
+    FLOOR(new Tile("floor", '.'), true),
     WALL(new Tile("wall", '#'));
 
     private final Tile tile;
+    private final boolean walkable;
 
     CellType(Tile tile) {
         this.tile = tile;
+        this.walkable = false;
+    }
+
+    CellType(Tile tile, boolean walkable) {
+        this.tile = tile;
+        this.walkable = walkable;
     }
 
     public static CellType getTile(TileSymbol tileSymbol) {
@@ -29,5 +36,9 @@ public enum CellType {
 
     public String getTileName() {
         return tile.getTileName();
+    }
+
+    public boolean isWalkable() {
+        return walkable;
     }
 }
