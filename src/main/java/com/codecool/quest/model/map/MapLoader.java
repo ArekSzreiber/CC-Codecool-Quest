@@ -4,6 +4,7 @@ import com.codecool.quest.model.actors.Player;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.items.Key;
 import com.codecool.quest.model.items.PlainSword;
 import com.codecool.quest.model.tile.TileSymbol;
 
@@ -33,6 +34,9 @@ public class MapLoader {
                             break;
                         case 'p':
                             new PlainSword(cell);
+                            break;
+                        case 'k':
+                            new Key(cell);
                             break;
                         case '@':
                             map.setPlayer(new Player(cell));
