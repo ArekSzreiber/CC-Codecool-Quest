@@ -1,7 +1,10 @@
-package com.codecool.quest.model;
+package com.codecool.quest.model.keybining;
 
+import com.codecool.quest.model.PlayerAction;
 import javafx.scene.input.KeyCode;
+import org.springframework.stereotype.Component;
 
+@Component
 public class WSADKeyBinding implements KeyBinding {
     @Override
     public PlayerAction getAction(KeyCode keyCode) {

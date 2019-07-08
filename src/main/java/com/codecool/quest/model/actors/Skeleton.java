@@ -1,4 +1,4 @@
-package com.codecool.quest.logic.actors;
+package com.codecool.quest.model.actors;
 
 import com.codecool.quest.model.cell.Cell;
 

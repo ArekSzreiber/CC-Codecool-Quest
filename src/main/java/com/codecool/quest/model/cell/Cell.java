@@ -1,8 +1,8 @@
 package com.codecool.quest.model.cell;
 
-import com.codecool.quest.logic.Drawable;
+import com.codecool.quest.model.Drawable;
 import com.codecool.quest.model.map.GameMap;
-import com.codecool.quest.logic.actors.Actor;
+import com.codecool.quest.model.actors.Actor;
 import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.tile.TileSymbol;
 

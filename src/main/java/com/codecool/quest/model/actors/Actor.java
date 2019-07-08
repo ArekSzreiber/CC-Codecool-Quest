@@ -1,7 +1,7 @@
-package com.codecool.quest.logic.actors;
+package com.codecool.quest.model.actors;
 
 import com.codecool.quest.model.cell.Cell;
-import com.codecool.quest.logic.Drawable;
+import com.codecool.quest.model.Drawable;
 import com.codecool.quest.model.Direction;
 
 public abstract class Actor implements Drawable {
