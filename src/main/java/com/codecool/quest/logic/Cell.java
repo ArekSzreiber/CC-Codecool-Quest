@@ -2,7 +2,6 @@ package com.codecool.quest.logic;
 
 import com.codecool.quest.logic.actors.Actor;
 import com.codecool.quest.model.CellType;
-import com.codecool.quest.model.Coordinate;
 import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.TileSymbol;
 
@@ -10,12 +9,12 @@ public class Cell implements Drawable {
     private CellType type;
     private Actor actor;
     private GameMap gameMap;
-    //private int x, y;//TODO refactor this to coordinate
-    private Coordinate coordinate;
+    private int x, y;
 
-    Cell(GameMap gameMap, Coordinate coordinate, CellType type) {
+    Cell(GameMap gameMap, int x, int y, CellType type) {
         this.gameMap = gameMap;
-        this.coordinate = coordinate;
+        this.x = x;
+        this.y = y;
         this.type = type;
     }
 
@@ -27,7 +26,7 @@ public class Cell implements Drawable {
         this.type = type;
     }
 
-    public void setType(TileSymbol tileSymbol){
+    public void setType(TileSymbol tileSymbol) {
         this.type = CellType.getTile(tileSymbol);
     }
 
@@ -39,14 +38,12 @@ public class Cell implements Drawable {
         return actor;
     }
 
-    public Cell getNeighbor(Coordinate vector) {
-        Coordinate newPosition = this.coordinate.add(vector);
-        return gameMap.getCell(newPosition);
+    public Cell getNeighbor(int deltaX, int deltaY) {
+        return gameMap.getCell(x + deltaX, y + deltaY);
     }
 
     public Cell getNeighbor(Direction direction) {
-        Coordinate vector = direction.getVector();
-        return getNeighbor(vector);
+        return gameMap.getCell(x + direction.getDeltaX(), y + direction.getDeltaY());
     }
 
     @Override
@@ -55,10 +52,10 @@ public class Cell implements Drawable {
     }
 
     public int getX() {
-        return coordinate.getX();
+        return x;
     }
 
     public int getY() {
-        return coordinate.getY();
+        return y;
     }
 }

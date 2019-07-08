@@ -6,13 +6,19 @@ public enum Direction {
     LEFT(-1, 0),
     RIGHT(1, 0);
 
-    private final Coordinate vector;
+    private final int deltaX;
+    private final int deltaY;
 
     Direction(int deltaX, int deltaY) {
-        this.vector = new Coordinate(deltaX, deltaY);
+        this.deltaX = deltaX;
+        this.deltaY = deltaY;
     }
 
-    public Coordinate getVector() {
-        return vector;
+    public int getDeltaY() {
+        return deltaY;
+    }
+
+    public int getDeltaX() {
+        return deltaX;
     }
 }

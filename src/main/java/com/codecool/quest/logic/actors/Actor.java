@@ -14,7 +14,7 @@ public abstract class Actor implements Drawable {
     }
 
     public void move(Direction direction) {
-        Cell nextCell = cell.getNeighbor(direction.getVector());
+        Cell nextCell = cell.getNeighbor(direction);
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;
