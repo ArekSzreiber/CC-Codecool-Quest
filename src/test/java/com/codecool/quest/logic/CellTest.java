@@ -23,6 +23,6 @@ class CellTest {
         assertEquals(null, cell.getNeighbor(Direction.UP));
 
         cell = map.getCell(1, 2);
-        assertEquals(null, cell.getNeighbor(Direction.RIGHT));
+        assertEquals(null, cell.getNeighbor(Direction.DOWN));
     }
 }
