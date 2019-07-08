@@ -1,13 +1,15 @@
 package com.codecool.quest.logic;
 
-import com.codecool.quest.model.CellType;
+import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.Direction;
+import com.codecool.quest.model.map.GameMap;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class CellTest {
-    GameMap map = new GameMap(3, 3, CellType.FLOOR);
+    private GameMap map = new GameMap(3, 3, CellType.FLOOR);
 
     @Test
     void getNeighbor() {
