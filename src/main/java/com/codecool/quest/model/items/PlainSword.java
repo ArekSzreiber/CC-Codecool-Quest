@@ -9,6 +9,11 @@ public class PlainSword extends Weapon {
     }
 
     @Override
+    public String getItemName() {
+        return "Plain Sword";
+    }
+
+    @Override
     public String getTileName() {
         return "plainSword";
     }

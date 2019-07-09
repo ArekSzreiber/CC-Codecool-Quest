@@ -7,12 +7,14 @@ import com.codecool.quest.model.keybining.WSADKeyBinding;
 import com.codecool.quest.model.map.GameMap;
 import com.codecool.quest.model.map.MapLoader;
 import javafx.application.Application;
+import javafx.collections.ObservableList;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -28,6 +30,7 @@ public class Main extends Application {
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
     Button pickUpButton = new Button("Pick Up");
+    ListView<String> inventoryView = new ListView<>();
     private KeyBinding keyBinding = new WSADKeyBinding();
 
     public static void main(String[] args) {
@@ -39,14 +42,16 @@ public class Main extends Application {
         pickUpButton.setOnAction(e -> {
             onButtonClicked();
         });
+        inventoryView.getItems().addAll(getPlayerItemsNames());
 
         GridPane ui = new GridPane();
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
 
-        ui.add(new Label("Health: "), 0, 0);
-        ui.add(pickUpButton, 1, 1);
         ui.add(healthLabel, 1, 0);
+        ui.add(pickUpButton, 1, 1);
+        ui.add(inventoryView, 1, 2);
+
 
         BorderPane borderPane = new BorderPane();
 
@@ -62,6 +67,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    private ObservableList<String> getPlayerItemsNames() {
+        return map.getPlayer().getItemsNames();
+    }
+
     private void onKeyPressed(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
         PlayerAction playerAction = keyBinding.getAction(keyCode);
@@ -69,7 +78,7 @@ public class Main extends Application {
         refresh();
     }
 
-    private void onButtonClicked(){
+    private void onButtonClicked() {
         PlayerAction playerAction = keyBinding.getAction(KeyCode.E);
         map.makePlayerAction(playerAction);
         refresh();
@@ -90,6 +99,7 @@ public class Main extends Application {
                 }
             }
         }
-        healthLabel.setText("" + map.getPlayer().getHealth());
+        healthLabel.setText("Health: " + map.getPlayer().getHealth());
+        inventoryView.setItems(getPlayerItemsNames());
     }
 }

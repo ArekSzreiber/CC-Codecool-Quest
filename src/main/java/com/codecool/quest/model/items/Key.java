@@ -8,6 +8,11 @@ public class Key extends Item {
     }
 
     @Override
+    public String getItemName() {
+        return "Key";
+    }
+
+    @Override
     public String getTileName() {
         return "key";
     }
