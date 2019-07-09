@@ -6,7 +6,9 @@ import com.codecool.quest.model.tile.TileSymbol;
 public enum CellType {
     EMPTY(new Tile("empty", ' ')),
     FLOOR(new Tile("floor", '.'), true),
-    WALL(new Tile("wall", '#'));
+    WALL(new Tile("wall", '#')),
+    OPEN_DOORS(new Tile("openDoor", '0'), true),
+    CLOSED_DOOR(new Tile("closedDoor", 'D'));
 
     private final Tile tile;
     private final boolean walkable;
