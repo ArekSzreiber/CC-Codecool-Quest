@@ -5,8 +5,7 @@ public enum PlayerAction {
     MOVE_DOWN(Direction.DOWN),
     MOVE_LEFT(Direction.LEFT),
     MOVE_RIGHT(Direction.RIGHT),
-    PICK_UP(),
-    ATTACK();
+    PICK_UP();
 
     private final Direction direction;
 

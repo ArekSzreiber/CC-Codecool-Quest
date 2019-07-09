@@ -4,11 +4,16 @@ import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Inventory;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.items.Item;
+import com.codecool.quest.model.items.Weapon;
 import javafx.collections.ObservableList;
+
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
 
 public class Player extends Actor {
 
-    private int baseAttackPower = 5;
+    private AttackPower baseAttackPower = new AttackPower(5);
 
     public Player(Cell cell) {
         super(cell);
@@ -50,8 +55,27 @@ public class Player extends Actor {
     }
 
     @Override
-    protected int getAttackPower() {
-        return baseAttackPower;
+    protected AttackPower getAttackPower() {
+
+        return new AttackPower(baseAttackPower, getStrongestWeaponAttackPower());
+    }
+
+    private AttackPower getStrongestWeaponAttackPower() {
+        Weapon[] weapons = inventory.getWeapons().toArray(new Weapon[0]);
+        if(weapons.length == 0){
+            return new AttackPower(0);
+        }
+        AttackPower[] attackPowers = new AttackPower[weapons.length];
+        for (int i = 0; i < weapons.length; i++) {
+            attackPowers[i] = weapons[i].getAttackPower();
+        }
+        AttackPower maxAttackPower = attackPowers[0];
+        for (int i = 1; i < attackPowers.length; i++) {
+            if(attackPowers[i].getAttackPower() > maxAttackPower.getAttackPower()){
+                maxAttackPower = attackPowers[i];
+            }
+        }
+        return maxAttackPower;
     }
 
     private boolean isAttackPossible(Cell nextCell) {

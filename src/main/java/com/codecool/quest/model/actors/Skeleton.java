@@ -3,14 +3,14 @@ package com.codecool.quest.model.actors;
 import com.codecool.quest.model.cell.Cell;
 
 public class Skeleton extends EnemyMob {
-    private int baseAttackPower = 2;
+    private AttackPower baseAttackPower = new AttackPower(2);
 
     public Skeleton(Cell cell) {
         super(cell);
     }
 
     @Override
-    public int getAttackPower() {
+    public AttackPower getAttackPower() {
         return baseAttackPower;
     }
 

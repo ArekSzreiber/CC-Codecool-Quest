@@ -45,7 +45,7 @@ public abstract class Actor implements Drawable {
     }
 
     protected Actor attack(Actor enemy) {
-        int attackPower = getAttackPower();
+        AttackPower attackPower = getAttackPower();
         enemy.decreaseHealth(attackPower);
         if (enemy.isDead()) {
             enemy = null;
@@ -57,9 +57,9 @@ public abstract class Actor implements Drawable {
         return health <= 0;
     }
 
-    private void decreaseHealth(int attackPower) {
-        this.health -= attackPower;
+    private void decreaseHealth(AttackPower attackPower) {
+        this.health -= attackPower.getAttackPower();
     }
 
-    protected abstract int getAttackPower();
+    protected abstract AttackPower getAttackPower();
 }
