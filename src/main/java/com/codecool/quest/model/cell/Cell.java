@@ -73,4 +73,10 @@ public class Cell implements Drawable {
     public Item getItem() {
         return this.item;
     }
+
+    public Item popItem() {
+        Item poppedItem = item;
+        item = null;
+        return poppedItem;
+    }
 }
