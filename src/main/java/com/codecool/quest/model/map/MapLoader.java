@@ -2,6 +2,7 @@ package com.codecool.quest.model.map;
 
 import com.codecool.quest.model.actors.Ghoul;
 import com.codecool.quest.model.actors.Player;
+import com.codecool.quest.model.actors.RisenWarrior;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
@@ -45,6 +46,8 @@ public class MapLoader {
                         case '@':
                             map.setPlayer(new Player(cell));
                             break;
+                        case 'R':
+                            new RisenWarrior(cell);
                     }
 
                 }
