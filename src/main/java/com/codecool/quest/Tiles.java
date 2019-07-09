@@ -15,6 +15,7 @@ public class Tiles {
 
     private static class TileSource {
         final int x, y, w, h;
+
         TileSource(int column, int row) {
             x = column * (TILE_WIDTH + 2);
             y = row * (TILE_WIDTH + 2);

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 public class WSADKeyBinding implements KeyBinding {
     @Override
     public PlayerAction getAction(KeyCode keyCode) {
-        switch(keyCode){
+        switch (keyCode) {
             case UP:
             case W:
                 return PlayerAction.MOVE_UP;
@@ -23,8 +23,6 @@ public class WSADKeyBinding implements KeyBinding {
                 return PlayerAction.MOVE_RIGHT;
             case E:
                 return PlayerAction.PICK_UP;
-            case SPACE:
-                return PlayerAction.ATTACK;
         }
         return null;
     }

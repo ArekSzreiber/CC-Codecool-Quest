@@ -18,7 +18,7 @@ public class Inventory {
 
     public ObservableList<String> getItemsNames() {
         ObservableList<String> names = FXCollections.observableArrayList();
-        for(Item item : items){
+        for (Item item : items) {
             names.add(item.getItemName());
         }
         return names;

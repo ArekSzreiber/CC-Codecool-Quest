@@ -49,7 +49,7 @@ public class GameMap {
     }
 
     public void makePlayerAction(PlayerAction playerAction) {
-        switch(playerAction){
+        switch (playerAction) {
             case MOVE_UP:
             case MOVE_DOWN:
             case MOVE_LEFT:

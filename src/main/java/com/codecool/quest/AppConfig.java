@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 @ComponentScan("com.codecool.quest")
 public class AppConfig {
     @Bean
-    public KeyBinding WSADKeyBinding(){
+    public KeyBinding WSADKeyBinding() {
         return new WSADKeyBinding();
     }
 }

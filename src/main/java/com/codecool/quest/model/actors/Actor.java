@@ -20,7 +20,6 @@ public abstract class Actor implements Drawable {
             nextCell.setActor(this);
             cell = nextCell;
         }
-
     }
 
     private boolean isMovePossible(Cell nextCell) {
@@ -44,4 +43,23 @@ public abstract class Actor implements Drawable {
     public int getY() {
         return cell.getY();
     }
+
+    protected Actor attack(Actor enemy) {
+        int attackPower = getAttackPower();
+        enemy.decreaseHealth(attackPower);
+        if (enemy.isDead()) {
+            enemy = null;
+        }
+        return enemy;
+    }
+
+    private boolean isDead() {
+        return health <= 0;
+    }
+
+    private void decreaseHealth(int attackPower) {
+        this.health -= attackPower;
+    }
+
+    protected abstract int getAttackPower();
 }
