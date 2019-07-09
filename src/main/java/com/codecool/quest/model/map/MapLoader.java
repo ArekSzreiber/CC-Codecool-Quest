@@ -1,5 +1,6 @@
 package com.codecool.quest.model.map;
 
+import com.codecool.quest.model.actors.Ghoul;
 import com.codecool.quest.model.actors.Player;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
@@ -37,6 +38,9 @@ public class MapLoader {
                             break;
                         case 'k':
                             new Key(cell);
+                            break;
+                        case 'g':
+                            new Ghoul(cell);
                             break;
                         case '@':
                             map.setPlayer(new Player(cell));
