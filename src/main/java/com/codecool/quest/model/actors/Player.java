@@ -3,6 +3,7 @@ package com.codecool.quest.model.actors;
 import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Inventory;
 import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Weapon;
 import javafx.collections.ObservableList;
@@ -48,10 +49,20 @@ public class Player extends Actor {
                 enemy.attack(this);
             }
             nextCell.setActor(enemy);
-        } else {
+        } else if (isMovePossible(nextCell)) {
             super.move(direction);
+        } else if (isOpeningDoorsPossible(nextCell)) {
+            nextCell.setType(CellType.OPEN_DOORS);
         }
 
+    }
+
+    private boolean isOpeningDoorsPossible(Cell nextCell) {
+        return hasKey() && CellType.CLOSED_DOOR.equals(nextCell.getType());
+    }
+
+    private boolean hasKey() {
+        return inventory.containsKey();
     }
 
     @Override
@@ -62,7 +73,7 @@ public class Player extends Actor {
 
     private AttackPower getStrongestWeaponAttackPower() {
         Weapon[] weapons = inventory.getWeapons().toArray(new Weapon[0]);
-        if(weapons.length == 0){
+        if (weapons.length == 0) {
             return new AttackPower(0);
         }
         AttackPower[] attackPowers = new AttackPower[weapons.length];
@@ -71,7 +82,7 @@ public class Player extends Actor {
         }
         AttackPower maxAttackPower = attackPowers[0];
         for (int i = 1; i < attackPowers.length; i++) {
-            if(attackPowers[i].getAttackPower() > maxAttackPower.getAttackPower()){
+            if (attackPowers[i].getAttackPower() > maxAttackPower.getAttackPower()) {
                 maxAttackPower = attackPowers[i];
             }
         }

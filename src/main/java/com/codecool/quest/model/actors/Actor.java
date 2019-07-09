@@ -22,7 +22,7 @@ public abstract class Actor implements Drawable {
         }
     }
 
-    private boolean isMovePossible(Cell nextCell) {
+    boolean isMovePossible(Cell nextCell) {
         return ((nextCell != null)
                 && (nextCell.isWalkable())
                 && (nextCell.getActor() == null));

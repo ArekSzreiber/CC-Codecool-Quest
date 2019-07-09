@@ -49,6 +49,9 @@ public class GameMap {
     }
 
     public void makePlayerAction(PlayerAction playerAction) {
+        if (playerAction == null) {
+            return;
+        }
         switch (playerAction) {
             case MOVE_UP:
             case MOVE_DOWN:

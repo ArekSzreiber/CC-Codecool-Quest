@@ -1,6 +1,7 @@
 package com.codecool.quest.model;
 
 import com.codecool.quest.model.items.Item;
+import com.codecool.quest.model.items.Key;
 import com.codecool.quest.model.items.Weapon;
 import javafx.beans.value.ObservableStringValue;
 import javafx.collections.FXCollections;
@@ -28,10 +29,19 @@ public class Inventory {
     public List<Weapon> getWeapons() {
         List<Weapon> weapons = new LinkedList<>();
         for (Item item : items) {
-            if (item instanceof Weapon){
+            if (item instanceof Weapon) {
                 weapons.add((Weapon) item);
             }
         }
         return weapons;
+    }
+
+    public boolean containsKey() {
+        for (Item item : items) {
+            if (item instanceof Key) {
+                return true;
+            }
+        }
+        return false;
     }
 }
