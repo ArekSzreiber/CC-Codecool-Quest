@@ -8,7 +8,8 @@ public enum CellType {
     FLOOR(new Tile("floor", '.'), true),
     WALL(new Tile("wall", '#')),
     OPEN_DOORS(new Tile("openDoor", '0'), true),
-    CLOSED_DOOR(new Tile("closedDoor", 'D'));
+    CLOSED_DOOR(new Tile("closedDoor", 'D')),
+    TREE(new Tile("tree", 'T'));
 
     private final Tile tile;
     private final boolean walkable;

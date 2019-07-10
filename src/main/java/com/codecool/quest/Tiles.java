@@ -38,6 +38,7 @@ public class Tiles {
         tileMap.put("risenWarrior", new TileSource(26, 0));
         tileMap.put("bronzeShield", new TileSource(5, 26));
         tileMap.put("potion", new TileSource(24, 22));
+        tileMap.put("tree", new TileSource(0, 1));
     }
 
     public static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
