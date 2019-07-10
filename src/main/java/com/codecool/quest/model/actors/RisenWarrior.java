@@ -11,7 +11,7 @@ public class RisenWarrior extends EnemyMob {
 
     public RisenWarrior(Cell cell) {
         super(cell);
-        this.health = 15;
+        this.health = new Health(15);
     }
 
     @Override

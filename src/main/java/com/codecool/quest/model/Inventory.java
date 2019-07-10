@@ -1,9 +1,6 @@
 package com.codecool.quest.model;
 
-import com.codecool.quest.model.items.Item;
-import com.codecool.quest.model.items.Key;
-import com.codecool.quest.model.items.Shield;
-import com.codecool.quest.model.items.Weapon;
+import com.codecool.quest.model.items.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -53,4 +50,16 @@ public class Inventory {
         return null;
     }
 
+    public void remove(Item item) {
+        items.remove(item);
+    }
+
+    public Consumable getConsumable() {
+        for (Item item : items) {
+            if (item instanceof Consumable) {
+                return (Consumable) item;
+            }
+        }
+        return null;
+    }
 }

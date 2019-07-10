@@ -6,7 +6,8 @@ public enum Action {
     MOVE_DOWN(Direction.DOWN),
     MOVE_LEFT(Direction.LEFT),
     MOVE_RIGHT(Direction.RIGHT),
-    PICK_UP();
+    PICK_UP(),
+    CONSUME();
 
     private final Direction direction;
 

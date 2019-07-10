@@ -9,6 +9,7 @@ import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.items.BronzeShield;
 import com.codecool.quest.model.items.Key;
 import com.codecool.quest.model.items.PlainSword;
+import com.codecool.quest.model.items.Potion;
 import com.codecool.quest.model.tile.TileSymbol;
 
 import java.io.InputStream;
@@ -52,6 +53,9 @@ public class MapLoader {
                             break;
                         case 'o':
                             new BronzeShield(cell);
+                            break;
+                        case 'P':
+                            new Potion(cell);
                             break;
                     }
 

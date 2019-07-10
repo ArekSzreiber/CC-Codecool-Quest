@@ -4,6 +4,7 @@ import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Inventory;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.items.Consumable;
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Shield;
 import com.codecool.quest.model.items.Weapon;
@@ -94,5 +95,11 @@ public class Player extends Actor {
     private boolean isAttackPossible(Cell nextCell) {
         return (nextCell != null
                 && nextCell.getActor() instanceof EnemyMob);
+    }
+
+    public void consume() {
+        Consumable consumable = inventory.getConsumable();
+        health.restore(consumable);
+        inventory.remove(consumable);
     }
 }

@@ -7,7 +7,7 @@ import com.codecool.quest.model.items.Shield;
 
 public abstract class Actor implements Drawable {
     protected Cell cell;
-    protected int health = 10;
+    protected Health health = new Health(10);
 
     public Actor(Cell cell) {
         this.cell = cell;
@@ -30,7 +30,7 @@ public abstract class Actor implements Drawable {
     }
 
     public int getHealth() {
-        return health;
+        return health.getHealth();
     }
 
     public Cell getCell() {
@@ -59,11 +59,11 @@ public abstract class Actor implements Drawable {
     protected abstract Shield getShield();
 
     public boolean isDead() {
-        return health <= 0;
+        return health.isDead();
     }
 
     private void decreaseHealth(AttackPower attackPower) {
-        this.health -= attackPower.getAttackPower();
+        health.decrease(attackPower.getAttackPower());
     }
 
     protected abstract AttackPower getAttackPower();

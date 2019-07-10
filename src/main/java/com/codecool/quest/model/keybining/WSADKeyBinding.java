@@ -23,6 +23,8 @@ public class WSADKeyBinding implements KeyBinding {
                 return Action.MOVE_RIGHT;
             case E:
                 return Action.PICK_UP;
+            case Q:
+                return Action.CONSUME;
         }
         return null;
     }

@@ -27,7 +27,7 @@ public abstract class EnemyMob extends Actor implements Runnable {
     }
 
     private boolean isAlive() {
-        return health > 0;
+        return !health.isDead();
     }
 
     @Override

@@ -72,6 +72,9 @@ public class GameMap {
             case PICK_UP:
                 player.pickUp();
                 break;
+            case CONSUME:
+                player.consume();
+                break;
         }
     }
 

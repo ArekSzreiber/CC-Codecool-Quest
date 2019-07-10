@@ -10,7 +10,7 @@ public class Ghoul extends EnemyMob {
 
     public Ghoul(Cell cell) {
         super(cell);
-        this.health = 12;
+        this.health = new Health(12);
     }
 
     @Override
