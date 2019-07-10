@@ -6,6 +6,7 @@ import com.codecool.quest.model.actors.RisenWarrior;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.items.BronzeShield;
 import com.codecool.quest.model.items.Key;
 import com.codecool.quest.model.items.PlainSword;
 import com.codecool.quest.model.tile.TileSymbol;
@@ -48,6 +49,10 @@ public class MapLoader {
                             break;
                         case 'R':
                             map.addEnemy(new RisenWarrior(cell));
+                            break;
+                        case 'o':
+                            new BronzeShield(cell);
+                            break;
                     }
 
                 }

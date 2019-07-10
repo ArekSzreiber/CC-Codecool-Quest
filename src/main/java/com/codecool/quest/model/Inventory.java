@@ -2,6 +2,7 @@ package com.codecool.quest.model;
 
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Key;
+import com.codecool.quest.model.items.Shield;
 import com.codecool.quest.model.items.Weapon;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -42,4 +43,14 @@ public class Inventory {
         }
         return false;
     }
+
+    public Shield getShield() {
+        for (Item item : items) {
+            if (item instanceof Shield) {
+                return (Shield) item;
+            }
+        }
+        return null;
+    }
+
 }

@@ -2,6 +2,7 @@ package com.codecool.quest.model.actors;
 
 
 import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.items.Shield;
 
 public abstract class EnemyMob extends Actor implements Runnable {
     EnemyMob(Cell cell) {
@@ -27,5 +28,10 @@ public abstract class EnemyMob extends Actor implements Runnable {
 
     private boolean isAlive() {
         return health > 0;
+    }
+
+    @Override
+    protected Shield getShield() {
+        return null;
     }
 }

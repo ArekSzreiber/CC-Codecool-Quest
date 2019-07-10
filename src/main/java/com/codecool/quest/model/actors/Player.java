@@ -5,6 +5,7 @@ import com.codecool.quest.model.Inventory;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.items.Item;
+import com.codecool.quest.model.items.Shield;
 import com.codecool.quest.model.items.Weapon;
 import javafx.collections.ObservableList;
 
@@ -51,6 +52,11 @@ public class Player extends Actor {
             super.move(direction);
         }
 
+    }
+
+    @Override
+    protected Shield getShield() {
+        return inventory.getShield();
     }
 
     private boolean isOpeningDoorsPossible(Cell nextCell) {

@@ -3,6 +3,7 @@ package com.codecool.quest.model.actors;
 import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Drawable;
 import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.items.Shield;
 
 public abstract class Actor implements Drawable {
     protected Cell cell;
@@ -46,12 +47,16 @@ public abstract class Actor implements Drawable {
 
     protected Actor attack(Actor enemy) {
         AttackPower attackPower = getAttackPower();
+        Shield shield = enemy.getShield();
+        attackPower.decrease(shield);
         enemy.decreaseHealth(attackPower);
         if (enemy.isDead()) {
             enemy = null;
         }
         return enemy;
     }
+
+    protected abstract Shield getShield();
 
     public boolean isDead() {
         return health <= 0;
