@@ -79,4 +79,8 @@ public class Cell implements Drawable {
         item = null;
         return poppedItem;
     }
+
+    public boolean isNotWalkable() {
+        return !type.isWalkable() && actor == null;
+    }
 }

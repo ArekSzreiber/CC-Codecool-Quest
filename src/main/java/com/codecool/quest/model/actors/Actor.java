@@ -15,17 +15,21 @@ public abstract class Actor implements Drawable {
     }
 
     public void move(Direction direction) {
+        move(direction, false);
+    }
+
+    public void move(Direction direction, boolean canMoveThroughWalls) {
         Cell nextCell = cell.getNeighbor(direction);
-        if (isMovePossible(nextCell)) {
+        if (isMovePossible(nextCell, canMoveThroughWalls)) {
             cell.setActor(null);
             nextCell.setActor(this);
             cell = nextCell;
         }
     }
 
-    private boolean isMovePossible(Cell nextCell) {
+    private boolean isMovePossible(Cell nextCell, boolean canMoveThroughWalls) {
         return ((nextCell != null)
-                && (nextCell.isWalkable())
+                && (nextCell.isWalkable() || canMoveThroughWalls)
                 && (nextCell.getActor() == null));
     }
 

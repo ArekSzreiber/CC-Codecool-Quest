@@ -1,8 +1,8 @@
 package com.codecool.quest;
 
-import com.codecool.quest.model.keybining.KeyBinding;
 import com.codecool.quest.model.Action;
 import com.codecool.quest.model.cell.Cell;
+import com.codecool.quest.model.keybining.KeyBinding;
 import com.codecool.quest.model.keybining.WSADKeyBinding;
 import com.codecool.quest.model.map.GameMap;
 import com.codecool.quest.model.map.MapLoader;
@@ -15,6 +15,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -29,6 +30,9 @@ public class Main extends Application {
             map.getHeight() * Tiles.TILE_WIDTH);
     GraphicsContext context = canvas.getGraphicsContext2D();
     Label healthLabel = new Label();
+    Label playerNameLabel = new Label();
+    TextField nameInput = new TextField();
+    Button setNameButton = new Button("Set Name");
     Button pickUpButton = new Button("Pick Up");
     ListView<String> inventoryView = new ListView<>();
     private KeyBinding keyBinding = new WSADKeyBinding();
@@ -42,15 +46,23 @@ public class Main extends Application {
         pickUpButton.setOnAction(e -> {
             onButtonClicked();
         });
+        setNameButton.setOnAction(e -> {
+            map.setPlayerName(nameInput.getText());
+            playerNameLabel.setText("Name: " + map.getPlayer().getName());
+        });
+
         inventoryView.getItems().addAll(getPlayerItemsNames());
 
         GridPane ui = new GridPane();
         ui.setPrefWidth(200);
         ui.setPadding(new Insets(10));
-
-        ui.add(healthLabel, 1, 0);
-        ui.add(pickUpButton, 1, 1);
-        ui.add(inventoryView, 1, 2);
+        int rowindex = 0;
+        ui.add(nameInput, 1, rowindex++);
+        ui.add(setNameButton, 1, rowindex++);
+        ui.add(playerNameLabel, 1, rowindex++);
+        ui.add(healthLabel, 1, rowindex++);
+        ui.add(pickUpButton, 1, rowindex++);
+        ui.add(inventoryView, 1, rowindex++);
 
 
         BorderPane borderPane = new BorderPane();
@@ -100,6 +112,7 @@ public class Main extends Application {
             }
         }
         healthLabel.setText("Health: " + map.getPlayer().getHealth());
+        playerNameLabel.setText("Name: " + map.getPlayer().getName());
         inventoryView.setItems(getPlayerItemsNames());
     }
 }

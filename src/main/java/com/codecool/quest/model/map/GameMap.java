@@ -87,4 +87,8 @@ public class GameMap {
             }
         }
     }
+
+    public void setPlayerName(String text) {
+        player.setName(text);
+    }
 }

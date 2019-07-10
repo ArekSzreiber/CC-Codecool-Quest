@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 public class Player extends Actor {
 
     private AttackPower baseAttackPower = new AttackPower(5);
+    private String name = "Player";
 
     public Player(Cell cell) {
         super(cell);
@@ -50,10 +51,15 @@ public class Player extends Actor {
         } else if (isOpeningDoorsPossible(nextCell)) {
             nextCell.setType(CellType.OPEN_DOORS);
         } else {
-            super.move(direction);
+            super.move(direction, canMoveThroughWalls());
         }
 
     }
+
+    private boolean canMoveThroughWalls() {
+        return "Arek".equals(name);
+    }
+
 
     @Override
     protected Shield getShield() {
@@ -101,5 +107,13 @@ public class Player extends Actor {
         Consumable consumable = inventory.getConsumable();
         health.restore(consumable);
         inventory.remove(consumable);
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return this.name;
     }
 }
