@@ -39,6 +39,7 @@ public class Tiles {
         tileMap.put("bronzeShield", new TileSource(5, 26));
         tileMap.put("potion", new TileSource(24, 22));
         tileMap.put("tree", new TileSource(0, 1));
+        tileMap.put("river", new TileSource(8, 4));
     }
 
     public static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
