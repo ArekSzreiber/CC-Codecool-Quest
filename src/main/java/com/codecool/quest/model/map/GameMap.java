@@ -41,7 +41,7 @@ public class GameMap {
         }
     }
 
-    public void setPlayer(Player player) {
+    void setPlayer(Player player) {
         this.player = player;
     }
 
@@ -80,11 +80,7 @@ public class GameMap {
 
     private void moveEveryEnemyMob() {
         for (EnemyMob enemy : enemyMobs) {
-            if (enemy.isDead()) {
-                //enemyMobs.remove(enemy);
-            } else {
-                enemy.move();
-            }
+            enemy.move();
         }
     }
 

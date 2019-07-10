@@ -9,7 +9,7 @@ public abstract class Shield extends Item {
         super(cell);
     }
 
-    protected static Random random = new Random();
+    static Random random = new Random();
 
     protected abstract boolean getBlock();
 

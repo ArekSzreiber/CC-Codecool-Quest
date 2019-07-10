@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tiles {
+class Tiles {
     static int TILE_WIDTH = 32;
 
     private static Image tileset = new Image("/tiles.png", 543 * 2, 543 * 2, true, false);
@@ -42,7 +42,7 @@ public class Tiles {
         tileMap.put("river", new TileSource(8, 4));
     }
 
-    public static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
+    static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
         TileSource tileSource = tileMap.get(d.getTileName());
         context.drawImage(tileset, tileSource.x, tileSource.y, tileSource.w, tileSource.h,
                 x * TILE_WIDTH, y * TILE_WIDTH, TILE_WIDTH, TILE_WIDTH);

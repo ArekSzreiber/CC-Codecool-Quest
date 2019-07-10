@@ -1,13 +1,13 @@
 package com.codecool.quest.model.tile;
 
-public class TileName {
+class TileName {
     private String name;
 
-    public TileName(String tileName) {
+    TileName(String tileName) {
         name = tileName;
     }
 
-    public String getValue() {
+    String getValue() {
         return name;
     }
 }

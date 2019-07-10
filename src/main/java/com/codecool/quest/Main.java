@@ -24,17 +24,17 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Main extends Application {
-    GameMap map = MapLoader.loadMap();
-    Canvas canvas = new Canvas(
+    private GameMap map = MapLoader.loadMap();
+    private Canvas canvas = new Canvas(
             map.getWidth() * Tiles.TILE_WIDTH,
             map.getHeight() * Tiles.TILE_WIDTH);
-    GraphicsContext context = canvas.getGraphicsContext2D();
-    Label healthLabel = new Label();
-    Label playerNameLabel = new Label();
-    TextField nameInput = new TextField();
-    Button setNameButton = new Button("Set Name");
-    Button pickUpButton = new Button("Pick Up");
-    ListView<String> inventoryView = new ListView<>();
+    private GraphicsContext context = canvas.getGraphicsContext2D();
+    private Label healthLabel = new Label();
+    private Label playerNameLabel = new Label();
+    private TextField nameInput = new TextField();
+    private Button setNameButton = new Button("Set Name");
+    private Button pickUpButton = new Button("Pick Up");
+    private ListView<String> inventoryView = new ListView<>();
     private KeyBinding keyBinding = new WSADKeyBinding();
 
     public static void main(String[] args) {
@@ -42,10 +42,8 @@ public class Main extends Application {
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        pickUpButton.setOnAction(e -> {
-            onButtonClicked();
-        });
+    public void start(Stage primaryStage) {
+        pickUpButton.setOnAction(e -> onButtonClicked());
         setNameButton.setOnAction(e -> {
             map.setPlayerName(nameInput.getText());
             playerNameLabel.setText("Name: " + map.getPlayer().getName());
@@ -62,7 +60,7 @@ public class Main extends Application {
         ui.add(playerNameLabel, 1, rowindex++);
         ui.add(healthLabel, 1, rowindex++);
         ui.add(pickUpButton, 1, rowindex++);
-        ui.add(inventoryView, 1, rowindex++);
+        ui.add(inventoryView, 1, rowindex);
 
 
         BorderPane borderPane = new BorderPane();

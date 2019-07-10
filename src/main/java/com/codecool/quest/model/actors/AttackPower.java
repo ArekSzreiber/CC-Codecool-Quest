@@ -9,15 +9,15 @@ public class AttackPower {
         this.attackPower = attackPower;
     }
 
-    public AttackPower(AttackPower baseAttackPower, AttackPower additionalAttackPower) {
+    AttackPower(AttackPower baseAttackPower, AttackPower additionalAttackPower) {
         this.attackPower = baseAttackPower.getAttackPower() + additionalAttackPower.getAttackPower();
     }
 
-    public int getAttackPower() {
+    int getAttackPower() {
         return attackPower;
     }
 
-    public void decrease(Shield shield) {
+    void decrease(Shield shield) {
         if (shield == null) {
             return;
         }

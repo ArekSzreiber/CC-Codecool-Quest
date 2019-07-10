@@ -7,9 +7,9 @@ import com.codecool.quest.model.items.Shield;
 
 public abstract class Actor implements Drawable {
     protected Cell cell;
-    protected Health health = new Health(10);
+    Health health = new Health(10);
 
-    public Actor(Cell cell) {
+    Actor(Cell cell) {
         this.cell = cell;
         this.cell.setActor(this);
     }
@@ -18,7 +18,7 @@ public abstract class Actor implements Drawable {
         move(direction, false);
     }
 
-    public void move(Direction direction, boolean canMoveThroughWalls) {
+    void move(Direction direction, boolean canMoveThroughWalls) {
         Cell nextCell = cell.getNeighbor(direction);
         if (isMovePossible(nextCell, canMoveThroughWalls)) {
             cell.setActor(null);
@@ -49,7 +49,7 @@ public abstract class Actor implements Drawable {
         return cell.getY();
     }
 
-    protected Actor attack(Actor enemy) {
+    Actor attack(Actor enemy) {
         AttackPower attackPower = getAttackPower();
         Shield shield = enemy.getShield();
         attackPower.decrease(shield);

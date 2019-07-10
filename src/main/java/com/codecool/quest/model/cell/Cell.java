@@ -41,10 +41,6 @@ public class Cell implements Drawable {
         return actor;
     }
 
-    public Cell getNeighbor(int deltaX, int deltaY) {
-        return gameMap.getCell(x + deltaX, y + deltaY);
-    }
-
     public Cell getNeighbor(Direction direction) {
         return gameMap.getCell(x + direction.getDeltaX(), y + direction.getDeltaY());
     }
@@ -80,7 +76,4 @@ public class Cell implements Drawable {
         return poppedItem;
     }
 
-    public boolean isNotWalkable() {
-        return !type.isWalkable() && actor == null;
-    }
 }
