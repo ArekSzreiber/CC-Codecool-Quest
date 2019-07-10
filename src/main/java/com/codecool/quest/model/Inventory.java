@@ -3,11 +3,9 @@ package com.codecool.quest.model;
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Key;
 import com.codecool.quest.model.items.Weapon;
-import javafx.beans.value.ObservableStringValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 

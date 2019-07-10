@@ -1,9 +1,13 @@
 package com.codecool.quest.model.map;
 
+import com.codecool.quest.model.Action;
+import com.codecool.quest.model.actors.EnemyMob;
 import com.codecool.quest.model.actors.Player;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
-import com.codecool.quest.model.PlayerAction;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameMap {
     private int width;
@@ -11,6 +15,7 @@ public class GameMap {
     private Cell[][] cells;
 
     private Player player;
+    private List<EnemyMob> enemyMobs = new ArrayList<>();
 
     public GameMap(int width, int height, CellType defaultCellType) {
         this.width = width;
@@ -21,6 +26,10 @@ public class GameMap {
                 cells[x][y] = new Cell(this, x, y, defaultCellType);
             }
         }
+    }
+
+    void addEnemy(EnemyMob enemy) {
+        this.enemyMobs.add(enemy);
     }
 
     public Cell getCell(int x, int y) {
@@ -48,20 +57,31 @@ public class GameMap {
         return height;
     }
 
-    public void makePlayerAction(PlayerAction playerAction) {
-        if (playerAction == null) {
+    public void makePlayerAction(Action action) {
+        if (action == null) {
             return;
         }
-        switch (playerAction) {
+        switch (action) {
             case MOVE_UP:
             case MOVE_DOWN:
             case MOVE_LEFT:
             case MOVE_RIGHT:
-                player.move(playerAction.getDirection());
+                player.move(action.getDirection());
+                moveEveryEnemyMob();
                 break;
             case PICK_UP:
                 player.pickUp();
                 break;
+        }
+    }
+
+    private void moveEveryEnemyMob() {
+        for (EnemyMob enemy : enemyMobs) {
+            if (enemy.isDead()) {
+                //enemyMobs.remove(enemy);
+            } else {
+                enemy.move();
+            }
         }
     }
 }

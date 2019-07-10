@@ -1,8 +1,8 @@
 package com.codecool.quest.model.actors;
 
-import com.codecool.quest.model.cell.Cell;
-import com.codecool.quest.model.Drawable;
 import com.codecool.quest.model.Direction;
+import com.codecool.quest.model.Drawable;
+import com.codecool.quest.model.cell.Cell;
 
 public abstract class Actor implements Drawable {
     protected Cell cell;
@@ -22,7 +22,7 @@ public abstract class Actor implements Drawable {
         }
     }
 
-    boolean isMovePossible(Cell nextCell) {
+    private boolean isMovePossible(Cell nextCell) {
         return ((nextCell != null)
                 && (nextCell.isWalkable())
                 && (nextCell.getActor() == null));
@@ -53,7 +53,7 @@ public abstract class Actor implements Drawable {
         return enemy;
     }
 
-    private boolean isDead() {
+    public boolean isDead() {
         return health <= 0;
     }
 

@@ -1,7 +1,7 @@
 package com.codecool.quest;
 
 import com.codecool.quest.model.keybining.KeyBinding;
-import com.codecool.quest.model.PlayerAction;
+import com.codecool.quest.model.Action;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.keybining.WSADKeyBinding;
 import com.codecool.quest.model.map.GameMap;
@@ -73,14 +73,14 @@ public class Main extends Application {
 
     private void onKeyPressed(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
-        PlayerAction playerAction = keyBinding.getAction(keyCode);
-        map.makePlayerAction(playerAction);
+        Action action = keyBinding.getAction(keyCode);
+        map.makePlayerAction(action);
         refresh();
     }
 
     private void onButtonClicked() {
-        PlayerAction playerAction = keyBinding.getAction(KeyCode.E);
-        map.makePlayerAction(playerAction);
+        Action action = keyBinding.getAction(KeyCode.E);
+        map.makePlayerAction(action);
         refresh();
     }
 

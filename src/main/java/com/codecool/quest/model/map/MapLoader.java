@@ -32,7 +32,7 @@ public class MapLoader {
                     cell.setType(currentSymbol);
                     switch (currentSymbol.getValue()) {
                         case 's':
-                            new Skeleton(cell);
+                            map.addEnemy(new Skeleton(cell));
                             break;
                         case 'p':
                             new PlainSword(cell);
@@ -41,13 +41,13 @@ public class MapLoader {
                             new Key(cell);
                             break;
                         case 'g':
-                            new Ghoul(cell);
+                            map.addEnemy(new Ghoul(cell));
                             break;
                         case '@':
                             map.setPlayer(new Player(cell));
                             break;
                         case 'R':
-                            new RisenWarrior(cell);
+                            map.addEnemy(new RisenWarrior(cell));
                     }
 
                 }

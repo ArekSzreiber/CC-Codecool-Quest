@@ -1,10 +1,10 @@
 package com.codecool.quest.model.cell;
 
+import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Drawable;
+import com.codecool.quest.model.actors.Actor;
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.map.GameMap;
-import com.codecool.quest.model.actors.Actor;
-import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.tile.TileSymbol;
 
 public class Cell implements Drawable {

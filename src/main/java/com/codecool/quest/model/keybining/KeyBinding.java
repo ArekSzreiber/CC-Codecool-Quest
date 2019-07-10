@@ -1,8 +1,8 @@
 package com.codecool.quest.model.keybining;
 
-import com.codecool.quest.model.PlayerAction;
+import com.codecool.quest.model.Action;
 import javafx.scene.input.KeyCode;
 
 public interface KeyBinding {
-    PlayerAction getAction(KeyCode keyCode);
+    Action getAction(KeyCode keyCode);
 }

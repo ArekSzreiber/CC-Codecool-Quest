@@ -8,10 +8,6 @@ import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Weapon;
 import javafx.collections.ObservableList;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
 public class Player extends Actor {
 
     private AttackPower baseAttackPower = new AttackPower(5);
@@ -49,10 +45,10 @@ public class Player extends Actor {
                 enemy.attack(this);
             }
             nextCell.setActor(enemy);
-        } else if (isMovePossible(nextCell)) {
-            super.move(direction);
         } else if (isOpeningDoorsPossible(nextCell)) {
             nextCell.setType(CellType.OPEN_DOORS);
+        } else {
+            super.move(direction);
         }
 
     }
