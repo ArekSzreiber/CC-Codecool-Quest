@@ -26,7 +26,7 @@ public abstract class EnemyMob extends Actor implements Runnable {
         this.cell.setActor(null);
     }
 
-    private boolean isAlive() {
+    public boolean isAlive() {
         return !health.isDead();
     }
 

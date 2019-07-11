@@ -80,7 +80,9 @@ public class GameMap {
 
     private void moveEveryEnemyMob() {
         for (EnemyMob enemy : enemyMobs) {
-            enemy.move();
+            if(enemy.isAlive()){
+                enemy.move();
+            }
         }
     }
 
