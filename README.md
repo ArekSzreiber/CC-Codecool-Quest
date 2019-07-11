@@ -25,7 +25,7 @@ The tiles used in the game are from [1-Bit Pack by Kenney](https://kenney.nl/ass
 
 ![tiles](src/main/resources/tiles.png)
 
-##Screenshots
+## Screenshots
 
 ![Gameplay 1](src/main/resources/screenshot1.png)
 ![Gameplay 2](src/main/resources/screenshot2.png)
