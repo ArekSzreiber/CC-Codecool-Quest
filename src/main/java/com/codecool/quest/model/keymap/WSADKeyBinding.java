@@ -1,4 +1,4 @@
-package com.codecool.quest.model.keybining;
+package com.codecool.quest.model.keymap;
 
 import com.codecool.quest.model.Action;
 import javafx.scene.input.KeyCode;

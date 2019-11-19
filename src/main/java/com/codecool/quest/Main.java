@@ -2,8 +2,8 @@ package com.codecool.quest;
 
 import com.codecool.quest.model.Action;
 import com.codecool.quest.model.cell.Cell;
-import com.codecool.quest.model.keybining.KeyBinding;
-import com.codecool.quest.model.keybining.WSADKeyBinding;
+import com.codecool.quest.model.keymap.KeyBinding;
+import com.codecool.quest.model.keymap.WSADKeyBinding;
 import com.codecool.quest.model.map.GameMap;
 import com.codecool.quest.model.map.MapLoader;
 import javafx.application.Application;
