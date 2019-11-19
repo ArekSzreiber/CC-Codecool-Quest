@@ -11,7 +11,7 @@ public class BronzeShield extends Shield {
 
     @Override
     protected boolean getBlock() {
-        // should be from 0 to 1, both inclusive
+        // should be from 0 to 1, both exclusive
         double blockChance = 0.5;
         return random.nextDouble() < blockChance;
     }
