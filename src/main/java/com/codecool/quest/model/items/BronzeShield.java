@@ -4,9 +4,6 @@ import com.codecool.quest.model.cell.Cell;
 
 public class BronzeShield extends Shield {
 
-    private double blockChance = 5;
-    private int blockValue = 2;
-
 
     public BronzeShield(Cell cell) {
         super(cell);
@@ -14,13 +11,15 @@ public class BronzeShield extends Shield {
 
     @Override
     protected boolean getBlock() {
+        // should be from 0 to 1, both inclusive
+        double blockChance = 0.5;
         return random.nextDouble() < blockChance;
     }
 
     @Override
     public int getBlockValue() {
         if (getBlock()) {
-            return blockValue;
+            return 2;
         } else {
             return 0;
         }
