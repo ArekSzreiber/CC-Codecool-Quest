@@ -23,19 +23,19 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
-public class Main extends Application {
-    private GameMap map = MapLoader.loadMap();
-    private Canvas canvas = new Canvas(
+public class Main extends Application{
+    private static GameMap map = MapLoader.loadMap();
+    private static Canvas canvas = new Canvas(
             map.getWidth() * Tiles.TILE_WIDTH,
             map.getHeight() * Tiles.TILE_WIDTH);
-    private GraphicsContext context = canvas.getGraphicsContext2D();
-    private Label healthLabel = new Label();
-    private Label playerNameLabel = new Label();
-    private TextField nameInput = new TextField();
-    private Button setNameButton = new Button("Set Name");
-    private Button pickUpButton = new Button("Pick Up");
-    private ListView<String> inventoryView = new ListView<>();
-    private KeyBinding keyBinding = new WSADKeyBinding();
+    private static GraphicsContext context = canvas.getGraphicsContext2D();
+    private static Label healthLabel = new Label();
+    private static Label playerNameLabel = new Label();
+    private static TextField nameInput = new TextField();
+    private static Button setNameButton = new Button("Set Name");
+    private static Button pickUpButton = new Button("Pick Up");
+    private static ListView<String> inventoryView = new ListView<>();
+    private static KeyBinding keyBinding = new WSADKeyBinding();
 
     public static void main(String[] args) {
         launch(args);
@@ -75,26 +75,33 @@ public class Main extends Application {
 
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
+
+
+
+
     }
 
-    private ObservableList<String> getPlayerItemsNames() {
+    private static ObservableList<String> getPlayerItemsNames() {
         return map.getPlayer().getItemsNames();
     }
 
     private void onKeyPressed(KeyEvent keyEvent) {
         KeyCode keyCode = keyEvent.getCode();
         Action action = keyBinding.getAction(keyCode);
-        map.makePlayerAction(action);
-        refresh();
+        playerMove(action);
     }
 
     private void onButtonClicked() {
         Action action = keyBinding.getAction(KeyCode.E);
+        playerMove(action);
+    }
+
+    private void playerMove(Action action){
         map.makePlayerAction(action);
         refresh();
     }
 
-    private void refresh() {
+    public static void refresh() {
         context.setFill(Color.BLACK);
         context.fillRect(0, 0, canvas.getWidth(), canvas.getHeight());
         for (int x = 0; x < map.getWidth(); x++) {

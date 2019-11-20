@@ -1,5 +1,6 @@
 package com.codecool.quest.model.map;
 
+import com.codecool.quest.Main;
 import com.codecool.quest.model.Action;
 import com.codecool.quest.model.actors.EnemyMob;
 import com.codecool.quest.model.actors.Player;
@@ -9,7 +10,7 @@ import com.codecool.quest.model.cell.CellType;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GameMap {
+public class GameMap implements Runnable {
     private int width;
     private int height;
     private Cell[][] cells;
@@ -26,6 +27,7 @@ public class GameMap {
                 cells[x][y] = new Cell(this, x, y, defaultCellType);
             }
         }
+        new Thread(this).start();
     }
 
     void addEnemy(EnemyMob enemy) {
@@ -67,7 +69,7 @@ public class GameMap {
             case MOVE_LEFT:
             case MOVE_RIGHT:
                 player.move(action.getDirection());
-                moveEveryEnemyMob();
+                //moveEveryEnemyMob(); // todo put this on new thread
                 break;
             case PICK_UP:
                 player.pickUp();
@@ -78,9 +80,9 @@ public class GameMap {
         }
     }
 
-    private void moveEveryEnemyMob() {
+    public void moveEveryEnemyMob() {
         for (EnemyMob enemy : enemyMobs) {
-            if(enemy.isAlive()){
+            if (enemy.isAlive()) {
                 enemy.move();
             }
         }
@@ -88,5 +90,21 @@ public class GameMap {
 
     public void setPlayerName(String text) {
         player.setName(text);
+    }
+
+
+    @Override
+    public void run() {
+        while (true) {
+            this.moveEveryEnemyMob();
+            Main.refresh();
+            System.out.println("Mobs moved");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

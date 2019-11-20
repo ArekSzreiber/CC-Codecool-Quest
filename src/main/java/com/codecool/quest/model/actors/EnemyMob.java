@@ -9,6 +9,7 @@ public abstract class EnemyMob extends Actor implements Runnable {
         super(cell);
         Thread thread = new Thread();
         thread.start();
+        System.out.println("Started");
     }
 
     public abstract void move();
@@ -21,7 +22,7 @@ public abstract class EnemyMob extends Actor implements Runnable {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-            move();
+            System.out.println("Alive");
         }
         this.cell.setActor(null);
     }
