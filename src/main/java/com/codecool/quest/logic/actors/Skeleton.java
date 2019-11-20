@@ -9,6 +9,11 @@ public class Skeleton extends Actor {
     }
 
     @Override
+    public String getType() {
+        return "Skeleton";
+    }
+
+    @Override
     public String getTileName() {
         return "skeleton";
     }

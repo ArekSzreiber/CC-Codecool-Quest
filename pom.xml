@@ -10,11 +10,10 @@
 
     <dependencies>
         <dependency>
-            <groupId>javafx</groupId>
-            <artifactId>jfxrt</artifactId>
-            <version>2.1</version>
-            <scope>system</scope>
-            <systemPath>${java.home}/lib/ext/jfxrt.jar</systemPath>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx</artifactId>
+            <version>11</version>
+            <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
@@ -22,6 +21,32 @@
             <version>5.3.2</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.zenjava</groupId>
+            <artifactId>javafx-maven-plugin</artifactId>
+            <version>8.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot</artifactId>
+            <version>2.1.6.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>11.0.2</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -33,16 +58,6 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-
-            <plugin>
-                <groupId>com.zenjava</groupId>
-                <artifactId>javafx-maven-plugin</artifactId>
-                <version>8.7.0</version>
-                <configuration>
-                    <mainClass>com.codecool.quest.Main</mainClass>
-                </configuration>
-            </plugin>
-
         </plugins>
     </build>
 

@@ -8,6 +8,11 @@ public class Player extends Actor {
         super(cell);
     }
 
+    @Override
+    public String getType() {
+        return "Player";
+    }
+
     public String getTileName() {
         return "player";
     }
