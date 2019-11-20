@@ -76,9 +76,6 @@ public class Main extends Application{
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
 
-
-
-
     }
 
     private static ObservableList<String> getPlayerItemsNames() {

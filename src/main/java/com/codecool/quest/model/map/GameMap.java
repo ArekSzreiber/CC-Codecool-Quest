@@ -27,7 +27,6 @@ public class GameMap implements Runnable {
                 cells[x][y] = new Cell(this, x, y, defaultCellType);
             }
         }
-        new Thread(this).start();
     }
 
     void addEnemy(EnemyMob enemy) {
@@ -69,7 +68,6 @@ public class GameMap implements Runnable {
             case MOVE_LEFT:
             case MOVE_RIGHT:
                 player.move(action.getDirection());
-                //moveEveryEnemyMob(); // todo put this on new thread
                 break;
             case PICK_UP:
                 player.pickUp();
@@ -96,7 +94,7 @@ public class GameMap implements Runnable {
     @Override
     public void run() {
         while (true) {
-            this.moveEveryEnemyMob();
+            moveEveryEnemyMob();
             Main.refresh();
             try {
                 Thread.sleep(1000);
