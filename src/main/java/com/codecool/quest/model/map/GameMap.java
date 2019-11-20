@@ -98,7 +98,6 @@ public class GameMap implements Runnable {
         while (true) {
             this.moveEveryEnemyMob();
             Main.refresh();
-            System.out.println("Mobs moved");
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {

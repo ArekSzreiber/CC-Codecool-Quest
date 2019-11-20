@@ -98,6 +98,9 @@ public class Main extends Application{
 
     private void playerMove(Action action){
         map.makePlayerAction(action);
+        if(map.getPlayer().isDead()){
+            System.exit(0);
+        }
         refresh();
     }
 
