@@ -18,16 +18,18 @@ public abstract class Actor implements Drawable {
         if (nextCell.getType() == CellType.WALL) {
             return;
         } else if (nextCell.getActor() != null) {
-            if (nextCell.getActor().getType().equals("Skeleton")) {
+            if (nextCell.getActor().getTileName().equals("skeleton")) {
                 return;
+            } else if (nextCell.getActor().getTileName().equals("sword")) {
+                health++;
+                cell.setActor(null);
+                
             }
         }
         cell.setActor(null);
         nextCell.setActor(this);
         cell = nextCell;
     }
-
-    public abstract String getType();
 
     public int getHealth() {
         return health;
