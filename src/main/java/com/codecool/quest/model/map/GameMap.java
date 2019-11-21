@@ -80,7 +80,6 @@ public class GameMap implements Runnable {
     }
 
     public void moveEveryEnemyMob() {
-        System.out.println(enemyMobs.size());
         Iterator<EnemyMob> enemiesIterator = enemyMobs.iterator();
         EnemyMob enemyMob;
         while(enemiesIterator.hasNext()){
