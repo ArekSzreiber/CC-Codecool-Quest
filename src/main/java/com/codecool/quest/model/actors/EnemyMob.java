@@ -7,9 +7,8 @@ import com.codecool.quest.model.items.Shield;
 public abstract class EnemyMob extends Actor implements Runnable {
     EnemyMob(Cell cell) {
         super(cell);
-        Thread thread = new Thread();
-        thread.start();
-        System.out.println("Started");
+//        Thread thread = new Thread();
+//        thread.start();
     }
 
     public abstract void move();

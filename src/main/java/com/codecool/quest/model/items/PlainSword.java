@@ -5,7 +5,7 @@ import com.codecool.quest.model.cell.Cell;
 
 public class PlainSword extends Weapon {
 
-    private AttackPower attackPower = new AttackPower(7);
+    private AttackPower attackPower = new AttackPower(4);
 
     public PlainSword(Cell cell) {
         super(cell);

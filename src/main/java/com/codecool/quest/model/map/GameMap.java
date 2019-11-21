@@ -8,6 +8,7 @@ import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class GameMap implements Runnable {
@@ -79,9 +80,15 @@ public class GameMap implements Runnable {
     }
 
     public void moveEveryEnemyMob() {
-        for (EnemyMob enemy : enemyMobs) {
-            if (enemy.isAlive()) {
-                enemy.move();
+        System.out.println(enemyMobs.size());
+        Iterator<EnemyMob> enemiesIterator = enemyMobs.iterator();
+        EnemyMob enemyMob;
+        while(enemiesIterator.hasNext()){
+            enemyMob = enemiesIterator.next();
+            if(enemyMob.isAlive()){
+                enemyMob.move();
+            }else{
+                enemiesIterator.remove();
             }
         }
     }
