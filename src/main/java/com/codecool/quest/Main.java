@@ -7,7 +7,9 @@ import com.codecool.quest.model.keymap.WSADKeyBinding;
 import com.codecool.quest.model.map.GameMap;
 import com.codecool.quest.model.map.MapLoader;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -22,8 +24,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
-public class Main extends Application{
+public class Main extends Application {
     private static GameMap map = MapLoader.loadMap();
     private static Canvas canvas = new Canvas(
             map.getWidth() * Tiles.TILE_WIDTH,
@@ -73,6 +76,8 @@ public class Main extends Application{
         refresh();
         scene.setOnKeyPressed(this::onKeyPressed);
 
+        closeApplication(primaryStage);
+
         primaryStage.setTitle("Codecool Quest");
         primaryStage.show();
 
@@ -93,9 +98,9 @@ public class Main extends Application{
         playerMove(action);
     }
 
-    private void playerMove(Action action){
+    private void playerMove(Action action) {
         map.makePlayerAction(action);
-        if(map.getPlayer().isDead()){
+        if (map.getPlayer().isDead()) {
             System.exit(0);
         }
         refresh();
@@ -120,4 +125,15 @@ public class Main extends Application{
         playerNameLabel.setText("Name: " + map.getPlayer().getName());
         inventoryView.setItems(getPlayerItemsNames());
     }
+
+    private void closeApplication(Stage primaryStage){
+        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent event) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
+    }
+
 }
