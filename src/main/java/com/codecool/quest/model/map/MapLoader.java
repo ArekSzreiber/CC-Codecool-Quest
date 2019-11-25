@@ -41,6 +41,12 @@ public class MapLoader {
                         case 'p':
                             new PlainSword(cell);
                             break;
+                        case 'S':
+                            new SilverSword(cell);
+                            break;
+                        case 'B':
+                            new Bonebreaker(cell);
+                            break;
                         case 'k':
                             new Key(cell);
                             break;

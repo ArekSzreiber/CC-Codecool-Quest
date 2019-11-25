@@ -39,9 +39,11 @@ class PlayerTest {
         Player player = new Player(mockCell);
         Item item = new Key(mockCell);
         Mockito.when(mockCell.popItem()).thenReturn(item);
-        Mockito.when(mockCell.getItem()).thenReturn(item);
         assertEquals(0, player.countItems());
         player.pickUp();
         assertEquals(1, player.countItems());
     }
+
+//    @Test
+//    void playerWears
 }

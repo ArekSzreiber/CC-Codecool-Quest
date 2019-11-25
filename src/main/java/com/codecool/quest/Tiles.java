@@ -40,12 +40,14 @@ class Tiles {
         tileMap.put("risenWarrior", new TileSource(26, 0));
         tileMap.put("skeleton", new TileSource(29, 6));
         //items:
+        tileMap.put("bonebreaker", new TileSource(1, 27));
         tileMap.put("bronzeShield", new TileSource(5, 26));
         tileMap.put("glacialWall", new TileSource(7, 25));
         tileMap.put("key", new TileSource(16, 23));
         tileMap.put("neverendingWinter", new TileSource(6, 26));
         tileMap.put("plainSword", new TileSource(0, 29));
         tileMap.put("potion", new TileSource(24, 22));
+        tileMap.put("silverSword", new TileSource(0, 30));
     }
 
     static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
