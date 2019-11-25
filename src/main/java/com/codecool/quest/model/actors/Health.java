@@ -6,9 +6,9 @@ class Health {
     private int health;
     private int maxHealth;
 
-    Health(int health) {
-        this.health = health;
-        this.maxHealth = health;
+    Health(int maximumHealth) {
+        this.health = maximumHealth;
+        this.maxHealth = maximumHealth;
     }
 
     int getHealth() {
