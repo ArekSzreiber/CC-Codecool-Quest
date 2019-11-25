@@ -40,7 +40,6 @@ class PlayerTest {
         Item item = new Key(mockCell);
         Mockito.when(mockCell.popItem()).thenReturn(item);
         Mockito.when(mockCell.getItem()).thenReturn(item);
-        //todo item contains field with cell, it does not need this field, but constructor should have it, because it sets it in that cell
         assertEquals(0, player.countItems());
         player.pickUp();
         assertEquals(1, player.countItems());
