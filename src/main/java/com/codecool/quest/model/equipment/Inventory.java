@@ -1,4 +1,4 @@
-package com.codecool.quest.model;
+package com.codecool.quest.model.equipment;
 
 import com.codecool.quest.model.items.*;
 import javafx.collections.FXCollections;

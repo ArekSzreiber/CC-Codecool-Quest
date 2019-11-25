@@ -1,7 +1,7 @@
 package com.codecool.quest.model.actors;
 
 import com.codecool.quest.model.Direction;
-import com.codecool.quest.model.Inventory;
+import com.codecool.quest.model.equipment.Inventory;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
 import com.codecool.quest.model.equipment.Equipment;
