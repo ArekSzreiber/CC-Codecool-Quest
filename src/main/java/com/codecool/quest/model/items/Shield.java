@@ -11,7 +11,7 @@ public abstract class Shield extends Item {
 
     static Random random = new Random();
 
-    protected abstract boolean getBlock();
+    protected abstract boolean isBlockSuccessful();
 
     public abstract int getBlockValue();
 }

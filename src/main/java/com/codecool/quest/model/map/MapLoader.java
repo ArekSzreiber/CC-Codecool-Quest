@@ -6,10 +6,7 @@ import com.codecool.quest.model.actors.RisenWarrior;
 import com.codecool.quest.model.actors.Skeleton;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
-import com.codecool.quest.model.items.BronzeShield;
-import com.codecool.quest.model.items.Key;
-import com.codecool.quest.model.items.PlainSword;
-import com.codecool.quest.model.items.Potion;
+import com.codecool.quest.model.items.*;
 import com.codecool.quest.model.tile.TileSymbol;
 
 import java.io.InputStream;
@@ -58,6 +55,12 @@ public class MapLoader {
                             break;
                         case 'o':
                             new BronzeShield(cell);
+                            break;
+                        case 'O':
+                            new NeverendingWinter(cell);
+                            break;
+                        case 'W':
+                            new GlacialWall(cell);
                             break;
                         case 'P':
                             new Potion(cell);

@@ -26,20 +26,26 @@ class Tiles {
 
     static {
         tileMap.put("empty", new TileSource(0, 0));
-        tileMap.put("wall", new TileSource(1, 3));
+        //walkable:
         tileMap.put("floor", new TileSource(2, 0));
-        tileMap.put("player", new TileSource(27, 0));
-        tileMap.put("skeleton", new TileSource(29, 6));
-        tileMap.put("plainSword", new TileSource(0, 29));
-        tileMap.put("key", new TileSource(16, 23));
-        tileMap.put("ghoul", new TileSource(24, 3));
         tileMap.put("openDoor", new TileSource(6, 9));
+        //obstacles:
         tileMap.put("closedDoor", new TileSource(5, 9));
-        tileMap.put("risenWarrior", new TileSource(26, 0));
-        tileMap.put("bronzeShield", new TileSource(5, 26));
-        tileMap.put("potion", new TileSource(24, 22));
-        tileMap.put("tree", new TileSource(0, 1));
         tileMap.put("river", new TileSource(8, 4));
+        tileMap.put("tree", new TileSource(0, 1));
+        tileMap.put("wall", new TileSource(1, 3));
+        //actors:
+        tileMap.put("ghoul", new TileSource(24, 3));
+        tileMap.put("player", new TileSource(27, 0));
+        tileMap.put("risenWarrior", new TileSource(26, 0));
+        tileMap.put("skeleton", new TileSource(29, 6));
+        //items:
+        tileMap.put("bronzeShield", new TileSource(5, 26));
+        tileMap.put("glacialWall", new TileSource(7, 25));
+        tileMap.put("key", new TileSource(16, 23));
+        tileMap.put("neverendingWinter", new TileSource(6, 26));
+        tileMap.put("plainSword", new TileSource(0, 29));
+        tileMap.put("potion", new TileSource(24, 22));
     }
 
     static void drawTile(GraphicsContext context, Drawable d, int x, int y) {
