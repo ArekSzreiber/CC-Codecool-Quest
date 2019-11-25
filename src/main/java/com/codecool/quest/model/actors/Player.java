@@ -4,6 +4,7 @@ import com.codecool.quest.model.Direction;
 import com.codecool.quest.model.Inventory;
 import com.codecool.quest.model.cell.Cell;
 import com.codecool.quest.model.cell.CellType;
+import com.codecool.quest.model.equipment.Equipment;
 import com.codecool.quest.model.items.Consumable;
 import com.codecool.quest.model.items.Item;
 import com.codecool.quest.model.items.Shield;
@@ -14,6 +15,9 @@ public class Player extends Actor {
 
     private AttackPower baseAttackPower = new AttackPower(5);
     private String name = "Player";
+    private Inventory inventory = new Inventory();
+    //equipment = inventory + gear
+    private Equipment equipment = new Equipment();
 
     public Player(Cell cell) {
         super(cell);
@@ -23,8 +27,6 @@ public class Player extends Actor {
     public String getTileName() {
         return "player";
     }
-
-    private Inventory inventory = new Inventory();
 
 
     public void pickUp() {
