@@ -28,7 +28,6 @@ public class Player extends Actor {
         return "player";
     }
 
-
     public void pickUp() {
         Item item = cell.popItem();
         if (item != null) {
@@ -117,5 +116,9 @@ public class Player extends Actor {
 
     public String getName() {
         return this.name;
+    }
+
+    public int countItems() {
+        return inventory.getItemsNames().size();
     }
 }
